@@ -1,0 +1,83 @@
+# This is a base shape file encoded in yaml
+# - `null` indicates a dimension is "finite", i.e. a non-"width" dimension
+# - a number indicates the base dimension of an "infinite" dimension, i.e. some notion of "width"
+net_dict.attn_layers.0.expand:
+- 4
+- 1
+net_dict.attn_layers.0.norm.weight:
+- 1
+net_dict.attn_layers.0.position_bias_mult: []
+net_dict.attn_layers.0.project:
+- 1
+- 2
+net_dict.attn_layers.1.expand:
+- 4
+- 1
+net_dict.attn_layers.1.norm.weight:
+- 1
+net_dict.attn_layers.1.position_bias_mult: []
+net_dict.attn_layers.1.project:
+- 1
+- 2
+net_dict.attn_layers.2.expand:
+- 4
+- 1
+net_dict.attn_layers.2.norm.weight:
+- 1
+net_dict.attn_layers.2.position_bias_mult: []
+net_dict.attn_layers.2.project:
+- 1
+- 2
+net_dict.attn_layers.3.expand:
+- 4
+- 1
+net_dict.attn_layers.3.norm.weight:
+- 1
+net_dict.attn_layers.3.position_bias_mult: []
+net_dict.attn_layers.3.project:
+- 1
+- 2
+net_dict.attn_layers.4.expand:
+- 4
+- 1
+net_dict.attn_layers.4.norm.weight:
+- 1
+net_dict.attn_layers.4.position_bias_mult: []
+net_dict.attn_layers.4.project:
+- 1
+- 2
+net_dict.attn_layers.5.expand:
+- 4
+- 1
+net_dict.attn_layers.5.norm.weight:
+- 1
+net_dict.attn_layers.5.position_bias_mult: []
+net_dict.attn_layers.5.project:
+- 1
+- 2
+net_dict.attn_layers.6.expand:
+- 4
+- 1
+net_dict.attn_layers.6.norm.weight:
+- 1
+net_dict.attn_layers.6.position_bias_mult: []
+net_dict.attn_layers.6.project:
+- 1
+- 2
+net_dict.attn_layers.7.expand:
+- 4
+- 1
+net_dict.attn_layers.7.norm.weight:
+- 1
+net_dict.attn_layers.7.position_bias_mult: []
+net_dict.attn_layers.7.project:
+- 1
+- 2
+net_dict.embedding.weight:
+- null
+- 1
+net_dict.norm.weight:
+- 1
+net_dict.outputs.weight:
+- null
+- 1
