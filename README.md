@@ -1,3 +1,48 @@
+
+4 We investigate the impact of learning rate warmup on GPT-style Transformers using muP/SP
+5 trained on a realistic repository on language modeling. We train on wikitext-2 for a single epoch
+6 and report the validation loss.
+7 In the extension phase, we wanted to answer the following questions: 1) Does muP lead to perfor-
+8 mance gains in practical settings? 2) Do we still need learning rate warmup under muP?
+9 We are in the realistic setting since we are using hlb-gpt (Hyperlightspeedbench-gpt [1]), which
+10 incorporates numerous techniques that are used in the large-scale setting by all major research
+11 labs in industry. These include fused attention+MLP blocks, a dynamic microbatch scheduler
+12 based on the expected gradient norm, parameter-group dependent learning rates and schedules,
+13 an empirically motivated scaling of the learning rate with model size as well as sequence length
+14 warmup with maximum batch size calculations based on the available VRAM.
+15 Since latter technique leads to ‘unaligned’ loss curves, we modify the repository such that learning
+16 rate schedule and warmup are based on tokens seen instead of the actual step count. That
+17 way we ensure that loss curves across runs are aligned. For the muP experiments, we remove
+18 the parameter-group dependent learning rates and schedules as well as the empirically motivated
+19 learning rate scaling factors from the repository, since these are techniques that muP natively
+20 implements.
+21 [1] https://github.com/tysam-code/hlb-gpt/
+22 Our experiments yield the following validation loss and perplexity curves:
+
+![image](sp_validation_loss.png)
+![image](mup_validation_loss.png)
+![image](sp_validation_ppl.png)
+![image](mup_validation_ppl.png)
+
+27 Here, the color difference between a curve and the best curve depicts the distance from the best
+28 run in terms of learning rate warmup. The plots depict a clear color gradient, i.e. the farther a
+29 run departs from the optimal learning warmup, the worse the convergence. Thus, learning rate
+30 warmup is still helpful, even under muP. However, the curves under muP are closer together than
+31 under SP, suggesting that learning rate warmup is more impactful under SP than under muP,
+32 answering our second question for the extension phase and confirming a hypothesis of the research
+33 community [2].
+34 [2] https://cloneofsimo.notion.site/What-to-do-to-scale-up-09e469d7c3444d6a90305397c38a46f5
+35 Lastly, we plot the validation loss curves of muP and SP in the same plot:
+
+![image](comparison_validation_loss.png)
+
+37 Here, we see that muP consistently outperforms SP in our experiments, affirmatively answering
+38 our first question of the extension phase. Not only that, but muP outperforms SP in a repository
+39 that implements empirical scaling laws based learning rates as well as parameter group dependent
+40 initialization, learning rates and schedules.
+
+---
+
 [![Twitter URL](https://img.shields.io/twitter/url/https/twitter.com/hi_tysam.svg?style=social&label=Follow%20%40TySam_And)](https://twitter.com/hi_tysam) [![Support me on Patreon](https://img.shields.io/endpoint.svg?url=https%3A%2F%2Fshieldsio-patreon.vercel.app%2Fapi%3Fusername%3Dtysam%26type%3Dpatrons%26suffix%3Dsponsors&style=flat)](https://patreon.com/tysam)
 
 ## hlb-GPT
